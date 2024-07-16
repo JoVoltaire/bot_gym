@@ -29,7 +29,7 @@ func main() {
         "Voador no cabo com banco inclinado",
     }
 
-	/*treInferiores := []string{
+	treInferiores := []string{
         "Agachamento Livre",
         "Agachamento com pulo",
         "Afundo",
@@ -45,7 +45,7 @@ func main() {
         "Cadeira extensora unilateral",
         "Cadeira abdutora",
     }
-	*/
+	
 	treOmbros := []string{
         "Elevação lateral c/ halteres",
         "Elevação frontal c/ halteres",
@@ -67,7 +67,7 @@ func main() {
         "Flexão de braço em isometria",
     }
 
-	/*treCostas := []string{
+	treCostas := []string{
         "Remada polia baixa",
         "Remada cavalinho",
         "Puxada aberta",
@@ -80,23 +80,60 @@ func main() {
         "Remada hammer pronada",
         "Remada curvada barra curva",
     }
-	*/
 	
-	
-	/*random_index := rand.Intn(len(trePeito))
-	exe_peito := trePeito[random_index]
-	*/
-	selectedPeito := getRandomExercises(trePeito, 3)
-    selectedOmbros := getRandomExercises(treOmbros, 2)
-    selectedTriceps := getRandomExercises(treTriceps, 2)
-	
-	selectedExercises := append(selectedPeito, selectedOmbros...)
-    selectedExercises = append(selectedExercises, selectedTriceps...)
+    treBiceps := []string{
+        "Rosca direta",
+        "Rosca alternada com halteres",
+        "Rosca concentrada",
+        "Rosca martelo",
+        "Rosca Scott",
+        "Rosca no cabo",
+        "Rosca 21",
+        "Rosca inclinada",
+        "Rosca de concentração com halteres",
+        "Rosca de punho",
+    }
 
+	dia := "C"
+
+	if dia == "A" {
+	
+        selectedPeito := getRandomExercises(trePeito, 3)
+        selectedOmbros := getRandomExercises(treOmbros, 2)
+        selectedTriceps := getRandomExercises(treTriceps, 2)
+        
+        selectedExercises := append(selectedPeito, selectedOmbros...)
+        selectedExercises = append(selectedExercises, selectedTriceps...)
+        
+        fmt.Println("Exercícios selecionados:")
+        for _, exercise := range selectedExercises{
+            fmt.Println(exercise)
+        }
+    
+    }else if dia == "B" {
+        selectedCostas := getRandomExercises(treCostas, 4)
+        selectedBiceps := getRandomExercises(treBiceps, 3)
+        
+        selectedExercises := append(selectedCostas, selectedBiceps...)
+        
+        fmt.Println("Exercícios selecionados:")
+        for _, exercise := range selectedExercises{
+            fmt.Println(exercise)
+        }
+    
+    }else if dia == "C" {
+        selectedInferiores := getRandomExercises(treInferiores, 4)
+
+        selectedExercises := append(selectedInferiores)
+
+        fmt.Println("Exercícios selecionados:")
+        for _, exercise := range selectedExercises{
+            fmt.Println(exercise)
+        }
+    }else {
+        fmt.Println("Opção Inválida.")
+    }
 
 	
-	fmt.Println("Exercícios selecionados:")
-    for _, exercise := range selectedExercises{
-        fmt.Println(exercise)
-	}
+	
 }	
