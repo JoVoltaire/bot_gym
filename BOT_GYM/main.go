@@ -6,6 +6,14 @@ import (
 	"time"
 )
 
+func combinaSlices(slices ...[]string) []string {
+    var combined []string
+    for _, exercicio := range slices {
+        combined = append(combined, exercicio...)
+    }
+    return combined
+}
+
 func getRandomExercises(slice []string, n int) []string {
     rand.Seed(time.Now().UnixNano())
     randomExercises := make([]string, n)
@@ -94,7 +102,7 @@ func main() {
         "Rosca de punho",
     }
 
-	dia := "C"
+	dia := "Jorge"
 
 	if dia == "A" {
 	
@@ -102,8 +110,7 @@ func main() {
         selectedOmbros := getRandomExercises(treOmbros, 2)
         selectedTriceps := getRandomExercises(treTriceps, 2)
         
-        selectedExercises := append(selectedPeito, selectedOmbros...)
-        selectedExercises = append(selectedExercises, selectedTriceps...)
+        selectedExercises := combinaSlices(selectedPeito, selectedOmbros, selectedTriceps)
         
         fmt.Println("Exercícios selecionados:")
         for _, exercise := range selectedExercises{
@@ -114,7 +121,7 @@ func main() {
         selectedCostas := getRandomExercises(treCostas, 4)
         selectedBiceps := getRandomExercises(treBiceps, 3)
         
-        selectedExercises := append(selectedCostas, selectedBiceps...)
+        selectedExercises := combinaSlices(selectedCostas, selectedBiceps)
         
         fmt.Println("Exercícios selecionados:")
         for _, exercise := range selectedExercises{
@@ -124,7 +131,7 @@ func main() {
     }else if dia == "C" {
         selectedInferiores := getRandomExercises(treInferiores, 4)
 
-        selectedExercises := append(selectedInferiores)
+        selectedExercises := combinaSlices(selectedInferiores)
 
         fmt.Println("Exercícios selecionados:")
         for _, exercise := range selectedExercises{
