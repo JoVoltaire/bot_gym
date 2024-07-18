@@ -102,6 +102,11 @@ func main() {
         "Rosca de punho",
     }
 
+    treTrapezio := []string{
+        "Encolhimento com barra ou halteres",
+        "Remada alta",
+    }
+
 	dia := "Jorge"
 
 	if dia == "A" {
@@ -120,8 +125,9 @@ func main() {
     }else if dia == "B" {
         selectedCostas := getRandomExercises(treCostas, 4)
         selectedBiceps := getRandomExercises(treBiceps, 3)
+        selectedTrapezio := getRandomExercises(treTrapezio, 1)
         
-        selectedExercises := combinaSlices(selectedCostas, selectedBiceps)
+        selectedExercises := combinaSlices(selectedCostas, selectedBiceps, selectedTrapezio)
         
         fmt.Println("Exercícios selecionados:")
         for _, exercise := range selectedExercises{
@@ -129,7 +135,7 @@ func main() {
         }
     
     }else if dia == "C" {
-        selectedInferiores := getRandomExercises(treInferiores, 4)
+        selectedInferiores := getRandomExercises(treInferiores, 7)
 
         selectedExercises := combinaSlices(selectedInferiores)
 
